@@ -51,4 +51,4 @@ if st.button("Predict Genre"):
 # Footer
 # -----------------------------
 st.markdown("---")
-st.markdown("Made with ❤️ using Streamlit")
+# st.markdown("Made  using Streamlit")
