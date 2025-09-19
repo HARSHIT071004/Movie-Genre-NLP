@@ -1,19 +1,25 @@
 # app.py
+import os
 import streamlit as st
 import pickle
 
 # -----------------------------
 # Load saved model, vectorizer & genre mapping
 # -----------------------------
-with open("tfidf_vectorizer.pkl", "rb") as f:
+
+
+# Folder path jahan pickle files hain
+pickle_folder = "Outputs"
+
+with open(os.path.join(pickle_folder, "tfidf_vectorizer.pkl"), "rb") as f:
     vectorizer = pickle.load(f)
 
-with open("best_logreg_model.pkl", "rb") as f:
+with open(os.path.join(pickle_folder, "best_logreg_model.pkl"), "rb") as f:
     model = pickle.load(f)
 
-# Load the genre mapping dictionary instead of LabelEncoder
-with open("label_encoder.pkl", "rb") as f:
+with open(os.path.join(pickle_folder, "label_encoder.pkl"), "rb") as f:
     genre_map = pickle.load(f)
+
 
 # -----------------------------
 # Streamlit UI
