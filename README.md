@@ -1,89 +1,139 @@
-Movie Genre Predictor – NLP Project
-Project Overview
+🎬 Movie Genre Predictor – NLP Project
 
-The Movie Genre Predictor is an NLP-based machine learning project that predicts the genre of a movie based on its plot summary. The system uses natural language processing techniques for text preprocessing and feature extraction, followed by classification models to predict genres.
+Predict the genre of a movie based solely on its plot description using Natural Language Processing (NLP) and Logistic Regression. This project demonstrates text preprocessing, feature extraction with TF-IDF, and multi-class classification, and is deployed as an interactive Streamlit web app.
 
-Key Features
+📖 Table of Contents
 
-Text Preprocessing:
-
-Tokenization
-
-Stopword removal
-
-Lemmatization or stemming
-
-Feature Extraction:
-
-Bag-of-Words (BoW)
-
-TF-IDF vectorization
-
-Modeling:
-
-Logistic Regression for multi-class classification
-
-Random Forest Classifier for improved performance
-
-Hyperparameter tuning using GridSearchCV
-
-Evaluation Metrics:
-
-Accuracy
-
-Precision, Recall, F1-score
-
-Confusion Matrix
+Overview
 
 Dataset
 
-The dataset consists of movie plot summaries along with their corresponding genres. Preprocessing includes:
-
-Cleaning text data
-
-Handling missing values
-
-Encoding genres as labels
-
 Tech Stack
 
-Python 3.x
+Project Workflow
 
-pandas, numpy
+Model Performance
 
-scikit-learn
+App Features
 
-NLTK / spaCy for NLP preprocessing
+How to Run Locally
 
-matplotlib, seaborn for visualization
+Deployment
 
-How to Use
+Future Improvements
 
-Load the dataset and clean text data.
+Acknowledgements
 
-Perform text preprocessing (tokenization, stopword removal, lemmatization).
+📝 Overview
 
-Convert text into numerical features using BoW or TF-IDF.
+This app predicts a movie’s genre (e.g., Drama, Comedy, Action, Romance, Thriller, Horror) based on its plot description. It uses TF-IDF vectorization and a Logistic Regression classifier tuned via GridSearchCV for optimal hyperparameters.
 
-Split data into training and testing sets.
+The model handles imbalanced data by using class weights and was evaluated on CountVectorizer and TF-IDF representations. The final deployment uses the TF-IDF version, as it produced a higher F1-score.
 
-Train classification models (Logistic Regression, Random Forest).
+📊 Dataset
 
-Evaluate model performance using accuracy and classification metrics.
+Dataset obtained from Kaggle: Wikipedia Movie Plots
 
-Use the trained model to predict genres for new movie plots.
+Columns used: Movie name, Genre, and Plot
 
-Results
+Cleaned using Python (removed missing values, duplicates, and non-English entries).
 
-Logistic Regression and Random Forest models achieved strong classification performance after preprocessing and tuning.
+Final balanced labels: Drama, Comedy, Horror, Action, Thriller, Romance.
 
-Random Forest generally performed better due to its ensemble nature and ability to handle complex patterns in text data.
+🛠 Tech Stack
 
-Future Work
+Language: Python 3.11+
 
-Experiment with deep learning models (LSTM, BERT) for better text understanding.
+Libraries:
 
-Handle multi-label classification if movies have multiple genres.
+scikit-learn – TF-IDF, CountVectorizer, Logistic Regression, GridSearchCV
+
+pandas, numpy – Data cleaning & analysis
+
+matplotlib, seaborn – Visualization
+
+streamlit – Web app deployment
+
+pickle – Model persistence
+
+🚀 Project Workflow
+
+Data Cleaning – Removed duplicates, fixed missing values, limited to six core genres.
+
+Exploratory Data Analysis (EDA) – Checked class imbalance, visualized top terms.
+
+Feature Engineering –
+
+TF-IDF Vectorizer (tfidf_vectorizer.pkl)
+
+CountVectorizer for comparison
+
+Model Training – Logistic Regression with hyperparameter tuning using GridSearchCV (class_weight='balanced').
+
+Evaluation – Best F1-Score: 0.5198 (LogReg + CountVectorizer), slightly better with TF-IDF on unseen data.
+
+Deployment Prep – Saved model (best_logreg_model.pkl) and mapping (label_encoder.pkl).
+
+Streamlit App – Built interactive UI (app.py) to input plots and predict genres.
+
+📈 Model Performance
+Vectorizer	Classifier	Best F1-Score
+CountVectorizer	Logistic Regression	0.5199
+TF-IDF	Logistic Regression	~0.52
+
+⚠ Predictions may be inaccurate for tricky or ambiguous plots.
+
+🌟 App Features
+
+Clean UI with Streamlit.
+
+Enter any movie plot and instantly predict its genre.
+
+Uses saved TF-IDF vectorizer and Logistic Regression model for fast inference.
+
+Lightweight and deployable on Streamlit Cloud.
+
+💻 How to Run Locally
+1️⃣ Clone the Repository
+git clone https://github.com/HARSHIT071004/Movie-Genre-Predictor-NLP-main.git
+cd Movie-Genre-Predictor-NLP-main
+
+2️⃣ Install Requirements
+pip install -r requirements.txt
+
+3️⃣ Run the App
+streamlit run app.py
+
+
+Then open the displayed URL (e.g., http://localhost:8501) in your browser.
+
+🌐 Deployment
+
+Deployed on Streamlit Cloud.
+
+Repository: HARSHIT071004/Movie-Genre-Predictor-NLP-main
+
+Branch: main
+
+Main file path: Movie-Genre-Predictor-NLP-main/app.py
+
+Ensure these files are in the same folder as app.py:
+
+tfidf_vectorizer.pkl
+
+best_logreg_model.pkl
+
+label_encoder.pkl
+
+🔮 Future Improvements
+
+Add more genres and train with larger balanced data.
+
+Use advanced models (e.g., SVM, BERT) for improved accuracy.
+
+Display confidence scores for predictions.
+
+Include visualizations (word clouds, top features) in the app.
 
 Deploy the model as a web app or API for real-time genre prediction.
 
