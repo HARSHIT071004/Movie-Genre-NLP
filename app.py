@@ -21,6 +21,7 @@ with open("label_encoder.pkl", "rb") as f:
 
 
 
+
 # -----------------------------
 # Streamlit UI
 # -----------------------------
