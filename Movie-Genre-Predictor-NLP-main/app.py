@@ -10,13 +10,15 @@ import pickle
 
 # Folder path jahan pickle files hain
 # Load model, vectorizer & genre mapping
-with open("tfidf_vectorizer.pkl", "rb") as f:
+BASE_DIR = os.path.dirname(__file__)
+
+with open(os.path.join(BASE_DIR, "tfidf_vectorizer.pkl"), "rb") as f:
     vectorizer = pickle.load(f)
 
-with open("best_logreg_model.pkl", "rb") as f:
+with open(os.path.join(BASE_DIR, "best_logreg_model.pkl"), "rb") as f:
     model = pickle.load(f)
 
-with open("label_encoder.pkl", "rb") as f:
+with open(os.path.join(BASE_DIR, "label_encoder.pkl"), "rb") as f:
     genre_map = pickle.load(f)
 
 
